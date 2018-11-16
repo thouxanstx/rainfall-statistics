@@ -10,23 +10,26 @@ public class RainfallProgram {
 		System.out.println("Enter rainfall measurements (in mm), or \"end\" to stop.");
 		
 		while(true) {
-			System.out.print("> ");
-			String line = keyboard.readLine();
-			if("end".equals(line)) {
-				break;
+			
+				System.out.print("> ");
+				String line = keyboard.readLine();
+				if("end".equals(line)) {
+					break;
+				}
+				try {
+					double measurement = Double.parseDouble(line);
+					stats.addMeasurement(measurement);
+				}catch(NumberFormatException ex){
+					System.out.println("Invalid measurement(enter \"end\" to stop).");
+				}catch(InvalidRainfallException ex2 ) {
+					System.out.println("Measurements can't be negative!");
+				}
 			}
-			
-			// TODO: parse the measurement and add it to stats
-			
-			// TODO: print a message if the measurement is negative
-			
-			// TODO: print a message if the measurement cannot be parsed
-		}
 		
 		System.out.println(stats.getCount() + " measurement(s) entered.");
-		
-		// TODO: prevent the exception when no measurements have been entered.
-		System.out.println("Mean rainfall: " + stats.getMean() + " mm");
-		System.out.println("Maximum rainfall: " + stats.getMax() + " mm");
+		if(stats.getCount()!=0) {
+			System.out.println("Mean rainfall: " + stats.getMean() + " mm");
+			System.out.println("Maximum rainfall: " + stats.getMax() + " mm");
+		}
 	}
 }
