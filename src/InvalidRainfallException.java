@@ -1,5 +1,5 @@
 
-public class InvalidRainfallException extends RuntimeException {
+public class InvalidRainfallException extends Exception {
 	public InvalidRainfallException(String message) {
 		super(message);
 	}

@@ -26,7 +26,7 @@ public class RainfallStatsTest {
 	 * should throw an IllegalStateException.
 	 */
 	@Test(expected = IllegalStateException.class)
-	public void testMaxOfNoMeasurements() {
+	public void testMaxOfNoMeasurements() throws InvalidRainfallException {
 		stats.getMax();
 	}
 	
@@ -47,7 +47,7 @@ public class RainfallStatsTest {
 	 * if the measurement is negative.
 	 */
 	@Test(expected = InvalidRainfallException.class)
-	public void testAddInvalidMeasurement() {
+	public void testAddInvalidMeasurement() throws InvalidRainfallException {
 		stats.addMeasurement(-1.0);
 	}
 	

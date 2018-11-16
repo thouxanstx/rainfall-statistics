@@ -21,7 +21,7 @@ public class RainfallProgram {
 					stats.addMeasurement(measurement);
 				}catch(NumberFormatException ex){
 					System.out.println("Invalid measurement(enter \"end\" to stop).");
-				}catch(InvalidRainfallException ex2 ) {
+				}catch(InvalidRainfallException ex ) {
 					System.out.println("Measurements can't be negative!");
 				}
 			}
